@@ -27,7 +27,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="start">
-        <Image src="/malerchau-hero.jpg" alt="Maler bei einem präzisen blauen Innenanstrich" fill priority sizes="100vw" className="hero-image" />
+        <Image src="/malerchau-room.jpg" alt="Heller Raum mit frisch gestrichener blauer Akzentwand und Holzboden" fill priority sizes="100vw" className="hero-image" />
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow"><span /> Handwerk mit Haltung</p>
