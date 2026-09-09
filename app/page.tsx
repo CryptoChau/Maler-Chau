@@ -82,7 +82,7 @@ export default function Home() {
         <div><p className="eyebrow"><span /> Ihr Projekt</p><h2>Bereit für<br />frische <em>Farbe?</em></h2></div>
         <div className="contact-copy">
           <p>Erzählen Sie uns kurz, was Sie vorhaben. Wir melden uns persönlich und besprechen die nächsten Schritte.</p>
-          <a className="button button-light" href="mailto:?subject=Projektanfrage%20an%20Maler%20Chau">Projekt anfragen <ArrowRight size={18} /></a>
+          <a className="button button-light" href="mailto:info@malerchau.ch?subject=Projektanfrage%20an%20Maler%20Chau">Projekt anfragen <ArrowRight size={18} /></a>
         </div>
       </section>
 
