@@ -1,95 +1,63 @@
 import Image from 'next/image';
-import { ArrowRight, Check, PaintRoller, ShieldCheck, Sparkles } from 'lucide-react';
-
-const services = [
-  { number: '01', title: 'Innenräume', text: 'Wände, Decken und Details – sauber ausgeführt und genau auf Ihren Raum abgestimmt.' },
-  { number: '02', title: 'Fassaden', text: 'Langlebiger Schutz und ein stimmiges Erscheinungsbild für Ihr Zuhause oder Gewerbeobjekt.' },
-  { number: '03', title: 'Lackierarbeiten', text: 'Türen, Fenster und Oberflächen erhalten ein präzises, widerstandsfähiges Finish.' },
-];
-
-const steps = [
-  ['Kennenlernen', 'Wir besprechen Ihre Wünsche direkt vor Ort.'],
-  ['Klares Angebot', 'Sie erhalten eine nachvollziehbare Planung ohne Überraschungen.'],
-  ['Saubere Umsetzung', 'Wir schützen, arbeiten präzise und hinterlassen alles ordentlich.'],
-];
+import { ContactForm } from './contact-form';
+import { business, services, steps, projects, reviews } from './site-content';
 
 export default function Home() {
+  const schema = {
+    '@context': 'https://schema.org', '@type': 'HousePainter',
+    name: 'Maler Chau', url: 'https://malerchau.ch', email: business.email,
+    description: 'Persönliche Malerarbeiten von Chau, Maler EFZ mit Berufserfahrung seit 2004.',
+    address: { '@type': 'PostalAddress', addressLocality: 'Niedergösgen', addressRegion: 'SO', addressCountry: 'CH' },
+    areaServed: business.areas, founder: { '@type': 'Person', name: 'Chau', jobTitle: 'Maler EFZ' }
+  };
   return (
-    <main>
-      <header className="site-header">
-        <a className="brand" href="#start" aria-label="Maler Chau Startseite">
-          <span className="brand-mark"><PaintRoller size={22} /></span><span>Maler Chau</span>
-        </a>
-        <nav aria-label="Hauptnavigation">
-          <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a>
-        </nav>
-        <a className="header-cta" href="#kontakt">Projekt anfragen <ArrowRight size={17} /></a>
+    <>
+      <a href="#inhalt" className="skip-link">Zum Inhalt</a>
+      <header className="header">
+        <a href="#start" className="wordmark" aria-label="Maler Chau Startseite">MALER<span>CHAU</span><small>PERSÖNLICH. SAUBER. ERFAHREN.</small></a>
+        <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#chau">Über Chau</a><a href="#region">Region</a><a href="#kontakt">Kontakt</a></nav>
+        <a className="button compact" href="#kontakt">Offerte anfragen</a>
       </header>
-
-      <section className="hero" id="start">
-        <Image src="/malerchau-room.jpg" alt="Heller Raum mit frisch gestrichener blauer Akzentwand und Holzboden" fill priority sizes="100vw" className="hero-image" />
-        <div className="hero-shade" />
-        <div className="hero-content">
-          <p className="eyebrow"><span /> Handwerk mit Haltung</p>
-          <h1>Räume, die<br />sich richtig <em>anfühlen.</em></h1>
-          <p className="hero-copy">Hochwertige Malerarbeiten mit klarem Blick fürs Detail – von der ersten Idee bis zum letzten Pinselstrich.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#kontakt">Unverbindlich anfragen <ArrowRight size={18} /></a>
-            <a className="text-link" href="#leistungen">Leistungen ansehen</a>
+      <main id="inhalt">
+        <section className="hero" id="start">
+          <div className="hero-copy">
+            <p className="eyebrow">Maler EFZ · Niedergösgen SO</p>
+            <h1>22 Jahre Erfahrung.<br /><span>Persönlich für Ihr Zuhause.</span></h1>
+            <p className="hero-subtitle">Malerarbeiten & Renovationen – persönlich vom Maler EFZ.</p>
+            <p>Ich bin Chau, gelernter Maler EFZ. Seit 2004 bin ich im Schweizer Malerhandwerk tätig. Meine Ausbildung und langjährige Praxis in Schweizer Malerbetrieben bringe ich heute direkt zu Ihnen nach Hause.</p>
+            <div className="actions"><a className="button" href="#kontakt">Kostenlose Offerte anfragen</a><a className="secondary" href={business.photoMail}>Projekt per Foto anfragen ↗</a></div>
+            <p className="hero-region">Für Privatkunden in Olten, Aarau und Umgebung.<br />Auch Kleinaufträge sind willkommen.</p>
           </div>
-        </div>
-        <div className="hero-proof">
-          <div><ShieldCheck size={22} /><span><strong>Zuverlässig</strong><small>Absprachen, die halten</small></span></div>
-          <div><Sparkles size={22} /><span><strong>Sauber</strong><small>Bis ins kleinste Detail</small></span></div>
-        </div>
-      </section>
-
-      <section className="section services" id="leistungen">
-        <div className="section-intro">
-          <p className="eyebrow dark"><span /> Was wir machen</p>
-          <h2>Gutes Handwerk<br />sieht man. <em>Und spürt man.</em></h2>
-        </div>
-        <p className="section-lead">Wir verbinden Erfahrung mit einem sicheren Gespür für Farbe, Material und Raum. Das Ergebnis: Oberflächen, die lange Freude machen.</p>
-        <div className="service-grid">
-          {services.map((service) => (
-            <article className="service-card" key={service.number}>
-              <span className="service-number">{service.number}</span><div className="service-icon"><PaintRoller size={23} /></div>
-              <h3>{service.title}</h3><p>{service.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="quality-band">
-        <div className="quality-quote"><span className="quote-mark">“</span><p>Präzision ist für uns kein Extra. Sie ist die Grundlage unserer Arbeit.</p></div>
-        <div className="quality-list">
-          {['Sorgfältige Vorbereitung', 'Hochwertige Materialien', 'Transparente Kommunikation', 'Termintreue Ausführung'].map((item) => (
-            <div key={item}><span><Check size={15} /></span>{item}</div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section process" id="ablauf">
-        <div className="section-intro"><p className="eyebrow dark"><span /> So läuft es</p><h2>Einfach. Klar.<br /><em>Persönlich.</em></h2></div>
-        <div className="steps">
-          {steps.map(([title, copy], index) => (
-            <article className="step" key={title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{copy}</p></article>
-          ))}
-        </div>
-      </section>
-
-      <section className="contact" id="kontakt">
-        <div><p className="eyebrow"><span /> Ihr Projekt</p><h2>Bereit für<br />frische <em>Farbe?</em></h2></div>
-        <div className="contact-copy">
-          <p>Erzählen Sie uns kurz, was Sie vorhaben. Wir melden uns persönlich und besprechen die nächsten Schritte.</p>
-          <a className="button button-light" href="mailto:info@malerchau.ch?subject=Projektanfrage%20an%20Maler%20Chau">Projekt anfragen <ArrowRight size={18} /></a>
-        </div>
-      </section>
-
-      <footer>
-        <a className="brand footer-brand" href="#start"><span className="brand-mark"><PaintRoller size={20} /></span><span>Maler Chau</span></a>
-        <p>Saubere Arbeit. Schöne Räume.</p><p>© {new Date().getFullYear()} Maler Chau</p>
-      </footer>
-    </main>
+          <figure className="hero-visual">
+            <Image src="/malerchau-room.jpg" alt="Rauminspiration mit blauer Akzentwand und hellem Holzboden" fill priority sizes="(max-width: 850px) 100vw, 45vw" />
+            <figcaption>Farbe verändert einen Raum.<small>Illustratives Raumbild · keine Projektreferenz</small></figcaption>
+          </figure>
+        </section>
+        <div className="trust"><span>Maler EFZ</span><span>Seit 2004 im Beruf</span><span>Schweizer Berufserfahrung</span><span>Direkter Kontakt mit Chau</span></div>
+        <section className="section" id="leistungen">
+          <div className="section-heading"><div><p className="eyebrow">Was ich für Sie mache</p><h2>Vom einzelnen Zimmer<br />bis zur Renovation.</h2></div><p>Für Ihr Haus, Ihre Wohnung oder eine bevorstehende Übergabe. Ich kümmere mich auch um die kleinen Arbeiten, die lange liegen bleiben.</p></div>
+          <div className="services">{services.map((s,i)=><article key={s.title}><span className="number">0{i+1}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
+          <p className="small-job">Ein Zimmer, ein Türrahmen, ein paar Bohrlöcher? <strong>Auch kleinere Aufträge sind willkommen.</strong></p>
+        </section>
+        <section className="about section" id="chau">
+          <div className="experience"><span>Seit</span><strong>2004</strong><p>im Malerberuf.<br />Heute persönlich für Sie<br />als Maler Chau.</p></div>
+          <div><p className="eyebrow">Wer hinter Maler Chau steckt</p><h2>Neue Marke.<br />Erfahrene Hände.</h2>
+            <p>Ich bin Chau und arbeite seit 2004 im Malerhandwerk. Nach meiner Ausbildung zum Maler EFZ habe ich in verschiedenen Schweizer Malerbetrieben über viele Jahre praktische Erfahrung gesammelt.</p>
+            <p>Mit Maler Chau setze ich diese Erfahrung nun für meine eigenen Kunden ein. Von der ersten Anfrage über die Besichtigung bis zur Ausführung haben Sie direkt mit mir zu tun.</p>
+            <p>Saubere Vorbereitung, zuverlässige Absprachen und ein ordentlich hinterlassener Arbeitsplatz gehören für mich selbstverständlich dazu.</p>
+            <ul className="principles"><li>Persönlicher Ansprechpartner</li><li>Sorgfältige Vorbereitung</li><li>Transparente Offerten</li><li>Saubere Ausführung</li></ul>
+          </div>
+        </section>
+        <section className="section" id="ablauf"><p className="eyebrow">So kommen wir zusammen</p><h2>In vier Schritten<br />zur frisch gestrichenen Wand.</h2><div className="steps">{steps.map((s,i)=><article key={s.title}><span className="number">0{i+1}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div></section>
+        <section className="region section" id="region"><div><p className="eyebrow">In Ihrer Nähe</p><h2>Von Niedergösgen<br />zu Ihnen nach Hause.</h2><p>Mein Ausgangspunkt ist Niedergösgen SO. Ich übernehme Malerarbeiten in der Region Olten, Aarau, Lenzburg und Zofingen sowie in weiteren Orten in Aargau und Solothurn nach Absprache.</p></div><div className="places">{business.areas.map(a=><span key={a}>{a}</span>)}<p>Ihr Ort ist nicht dabei? Fragen Sie mich gerne an.</p></div></section>
+        <section className="section cost" id="kosten"><div><p className="eyebrow">Kosten & Planung</p><h2>Was kostet mein Malerprojekt?</h2></div><div><p>Fläche, Zustand der Wände, Vorbereitung und Möblierung beeinflussen den Aufwand. Mit Fotos und einer kurzen Beschreibung kann ich Ihr Vorhaben besser einschätzen.</p><p>Ein unverbindlicher Preisrechner ist für später geplant. Bis dahin erhalten Sie eine persönliche, nachvollziehbare Offerte.</p><a className="secondary" href="#kontakt">Kostenlose Offerte anfragen ↗</a></div></section>
+        {projects.length > 0 && <section className="section"><h2>Einblicke in meine Arbeit</h2>{projects.map(p=><article key={p.title}><h3>{p.title}</h3><p>{p.description}</p></article>)}</section>}
+        {reviews.length > 0 && <section className="section"><h2>Stimmen meiner Kunden</h2>{reviews.map(r=><blockquote key={r.name}>{r.text}<cite>{r.name}</cite></blockquote>)}</section>}
+        <section className="contact section" id="kontakt"><div className="contact-intro"><p className="eyebrow">Ihr Projekt beginnt mit einer Nachricht</p><h2>Erzählen Sie mir,<br />was Sie vorhaben.</h2><p>Fotos, Ihr Ort und eine kurze Beschreibung reichen für den ersten Kontakt. Ich melde mich persönlich bei Ihnen.</p><a className="email" href={'mailto:'+business.email}>{business.email}</a><p>Niedergösgen SO · Aargau & Solothurn</p>{business.phone ? <div className="actions"><a href={'tel:'+business.phone}>Anrufen</a><a href={'https://wa.me/'+business.phone.replace(/\D/g,'')}>WhatsApp</a></div> : <p className="muted">Telefon & WhatsApp folgen. Sie erreichen mich bereits per E-Mail.</p>}<a className="secondary" href={business.photoMail}>Fotos senden & erste Einschätzung erhalten ↗</a></div><ContactForm /></section>
+      </main>
+      <footer><a className="wordmark" href="#start">MALER<span>CHAU</span></a><p>Neu als Maler Chau. Seit 2004 im Handwerk.</p><a href={'mailto:'+business.email}>{business.email}</a><small>© {new Date().getFullYear()} Maler Chau</small></footer>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}} />
+    </>
   );
 }
+
