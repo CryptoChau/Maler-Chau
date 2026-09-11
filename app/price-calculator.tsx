@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { estimatePrice, type PriceInput } from './price-model';
 import { business } from './site-content';
 import './price-calculator.css';
-const money=(n:number)=>new Intl.NumberFormat('de-CH',{maximumFractionDigits:0}).format(n);
+const money=(n:number)=>Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '’');
 export function PriceCalculator(){
   const [rooms,setRooms]=useState('1'),[floor,setFloor]=useState('20'),[wall,setWall]=useState(''),[doors,setDoors]=useState('0');
   const [ceilings,setCeilings]=useState(true),[furnished,setFurnished]=useState(false),[colored,setColored]=useState(false);
@@ -59,4 +59,3 @@ export function PriceCalculator(){
     <noscript><p>Für den Rechner bitte JavaScript aktivieren oder direkt an <a href={'mailto:'+business.email}>{business.email}</a> schreiben.</p></noscript>
   </section>;
 }
-
