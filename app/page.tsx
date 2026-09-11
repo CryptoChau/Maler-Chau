@@ -20,22 +20,12 @@ export default function Home() {
         <a className="button compact" href="#kontakt">Offerte anfragen</a>
       </header>
       <main id="inhalt">
-        <section className="hero" id="start">
-          <div className="hero-copy">
-            <p className="eyebrow">Maler EFZ · Niedergösgen SO</p>
-            <h1>22 Jahre Erfahrung.<br /><span>Persönlich für Ihr Zuhause.</span></h1>
-            <p className="hero-subtitle">Malerarbeiten & Renovationen – persönlich vom Maler EFZ.</p>
-            <p>Ich bin Chau, gelernter Maler EFZ. Seit 2004 bin ich im Schweizer Malerhandwerk tätig. Meine Ausbildung und langjährige Praxis in Schweizer Malerbetrieben bringe ich heute direkt zu Ihnen nach Hause.</p>
-            <div className="actions"><a className="button" href="#kontakt">Kostenlose Offerte anfragen</a><a className="secondary" href={business.photoMail}>Projekt per Foto anfragen ↗</a></div>
-            <p className="hero-region">Für Privatkunden in Olten, Aarau und Umgebung.<br />Auch Kleinaufträge sind willkommen.</p>
-          </div>
-          <figure className="hero-visual">
-            <Image src="/malerchau-room.jpg" alt="Rauminspiration mit blauer Akzentwand und hellem Holzboden" fill priority sizes="(max-width: 850px) 100vw, 45vw" />
-            <figcaption>Farbe verändert einen Raum.<small>Illustratives Raumbild · keine Projektreferenz</small></figcaption>
-          </figure>
+        <div id="start"><ScrollStory /></div>
+        <section className="story-inquiry section" id="projektanfrage">
+          <div><p className="eyebrow">Von der Inspiration zu Ihrem Projekt</p><h2>Was darf ich für Sie verändern?</h2><p>Ein Zimmer, eine Renovation oder ein kleiner Auftrag: Erzählen Sie mir von Ihrem Vorhaben.</p></div>
+          <div className="inquiry-actions"><a className="button" href="#kontakt">Kostenlose Offerte anfragen</a><a className="secondary" href={business.photoMail}>Projekt per Foto anfragen ↗</a><p>Fotos, Ort und eine kurze Beschreibung genügen für den ersten Kontakt.</p></div>
         </section>
         <div className="trust"><span>Maler EFZ</span><span>Seit 2004 im Beruf</span><span>Schweizer Berufserfahrung</span><span>Direkter Kontakt mit Chau</span></div>
-        <ScrollStory />
         <section className="section" id="leistungen">
           <div className="section-heading"><div><p className="eyebrow">Was ich für Sie mache</p><h2>Vom einzelnen Zimmer<br />bis zur Renovation.</h2></div><p>Für Ihr Haus, Ihre Wohnung oder eine bevorstehende Übergabe. Ich kümmere mich auch um die kleinen Arbeiten, die lange liegen bleiben.</p></div>
           <div className="services">{services.map((s,i)=><article key={s.title}><span className="number">0{i+1}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
@@ -43,7 +33,7 @@ export default function Home() {
         </section>
         <section className="about section" id="chau">
           <div className="experience"><span>Seit</span><strong>2004</strong><p>im Malerberuf.<br />Heute persönlich für Sie<br />als Maler Chau.</p></div>
-          <div><p className="eyebrow">Wer hinter Maler Chau steckt</p><h2>Neue Marke.<br />Erfahrene Hände.</h2>
+          <div><p className="eyebrow">Wer hinter Maler Chau steckt</p><h2>Neue Marke.<br />22 Jahre Erfahrung.</h2>
             <p>Ich bin Chau und arbeite seit 2004 im Malerhandwerk. Nach meiner Ausbildung zum Maler EFZ habe ich in verschiedenen Schweizer Malerbetrieben über viele Jahre praktische Erfahrung gesammelt.</p>
             <p>Mit Maler Chau setze ich diese Erfahrung nun für meine eigenen Kunden ein. Von der ersten Anfrage über die Besichtigung bis zur Ausführung haben Sie direkt mit mir zu tun.</p>
             <p>Saubere Vorbereitung, zuverlässige Absprachen und ein ordentlich hinterlassener Arbeitsplatz gehören für mich selbstverständlich dazu.</p>

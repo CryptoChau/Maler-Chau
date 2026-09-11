@@ -1,0 +1,18 @@
+
+/* The brand scene opens the site; the enquiry follows the full image sequence. */
+.header{min-height:88px;padding-top:4px;padding-bottom:4px}
+.header .brand-logo{width:125px;height:82px}
+.story-brand .story-shade{background:linear-gradient(180deg,rgba(15,12,9,.22),transparent 26%,transparent 60%,rgba(15,12,9,.68))}
+.story-brand .story-copy{align-self:end;width:100%;padding:0 6vw 95px}
+.story-brand .story-label{display:none}
+.story-brand h1{font-size:clamp(1.7rem,3vw,2.8rem);letter-spacing:-.035em;margin:0 0 15px;color:white}
+.story-brand .story-description{display:none}
+@media(max-aspect-ratio:3/4){.story-brand{background:#43362c}.story-brand .story-image{top:8svh;bottom:auto;height:110vw;max-height:70svh;object-position:50% 50%!important}.story-brand .story-shade{background:linear-gradient(180deg,rgba(30,22,16,.15),transparent 25%,transparent 42%,rgba(30,22,16,.5) 75%,rgba(30,22,16,.8))}}
+.scroll-story[data-motion=true]{height:440svh;min-height:2200px}
+.story-inquiry{display:grid;grid-template-columns:1.2fr 1fr;gap:9%;align-items:center;background:#f5f4f0}
+.story-inquiry p:last-child{margin-bottom:0;color:#626663}
+.inquiry-actions{display:flex;flex-direction:column;align-items:flex-start;gap:23px}
+.inquiry-actions p{font-size:14px;max-width:380px}
+@media(max-width:850px){.header{gap:8px;padding-bottom:12px}.header nav{order:3}.header .brand-logo{width:105px;height:70px}.story-inquiry{grid-template-columns:1fr;gap:25px}}
+@media(max-width:600px){.scroll-story[data-motion=true]{height:410svh;min-height:1900px}.story-brand .story-copy{padding-bottom:100px}.story-brand h1{font-size:1.65rem;max-width:300px;margin-left:auto;margin-right:auto}.inquiry-actions{align-items:stretch}.inquiry-actions .button{text-align:center}}
+@media(prefers-reduced-motion:reduce){.scroll-story[data-motion=true]{height:auto;min-height:0}}
