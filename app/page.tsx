@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ContactForm } from './contact-form';
+import { ScrollStory } from './scroll-story';
 import { business, services, steps, projects, reviews } from './site-content';
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
           </figure>
         </section>
         <div className="trust"><span>Maler EFZ</span><span>Seit 2004 im Beruf</span><span>Schweizer Berufserfahrung</span><span>Direkter Kontakt mit Chau</span></div>
+        <ScrollStory />
         <section className="section" id="leistungen">
           <div className="section-heading"><div><p className="eyebrow">Was ich für Sie mache</p><h2>Vom einzelnen Zimmer<br />bis zur Renovation.</h2></div><p>Für Ihr Haus, Ihre Wohnung oder eine bevorstehende Übergabe. Ich kümmere mich auch um die kleinen Arbeiten, die lange liegen bleiben.</p></div>
           <div className="services">{services.map((s,i)=><article key={s.title}><span className="number">0{i+1}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
