@@ -8,7 +8,6 @@ export function estimatePrice(i:PriceInput) {
   if(autoWall&&(!Number.isInteger(i.rooms)||i.rooms<1||i.rooms>20))return null;
   const wall=i.wall??(autoWall?Math.round(4*Math.sqrt(i.floor/i.rooms)*2.5*i.rooms*.85):0);
   const ceiling=i.ceilings?(i.ceilingArea??i.floor):0;
-  if(i.ceilings&&ceiling<=0)return null;
   if(wall+ceiling+facade===0&&counts.every(n=>n===0))return null;
   if(i.condition==='damaged'&&wall+ceiling>0)return {manual:true as const,wall,ceiling,facade,autoWall};
   const wallRate=i.condition==='full'?[35,65]:i.condition==='light'?[18,30]:[15,25];
@@ -25,4 +24,3 @@ export function estimatePrice(i:PriceInput) {
   lines.push({label:'MWST-Budgetreserve (8,1 %)',low:net.low*.081,high:net.high*.081});
   return {manual:false as const,wall,ceiling,facade,autoWall,lines,low:Math.floor(net.low*1.081/10)*10,high:Math.ceil(net.high*1.081/10)*10};
 }
-
