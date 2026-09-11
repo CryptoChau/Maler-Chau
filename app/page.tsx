@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <a href="#inhalt" className="skip-link">Zum Inhalt</a>
       <header className="header">
-        <a href="#start" className="wordmark" aria-label="Maler Chau Startseite">MALER<span>CHAU</span><small>PERSÖNLICH. SAUBER. ERFAHREN.</small></a>
+        <a href="#start" className="brand-logo" aria-label="Maler Chau Startseite"><Image src="/maler-chau-logo.jpeg" alt="Maler Chau – Malerarbeiten & Renovationen" width={1254} height={1254} priority unoptimized /></a>
         <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#chau">Über Chau</a><a href="#region">Region</a><a href="#kontakt">Kontakt</a></nav>
         <a className="button compact" href="#kontakt">Offerte anfragen</a>
       </header>
@@ -55,9 +55,8 @@ export default function Home() {
         {reviews.length > 0 && <section className="section"><h2>Stimmen meiner Kunden</h2>{reviews.map(r=><blockquote key={r.name}>{r.text}<cite>{r.name}</cite></blockquote>)}</section>}
         <section className="contact section" id="kontakt"><div className="contact-intro"><p className="eyebrow">Ihr Projekt beginnt mit einer Nachricht</p><h2>Erzählen Sie mir,<br />was Sie vorhaben.</h2><p>Fotos, Ihr Ort und eine kurze Beschreibung reichen für den ersten Kontakt. Ich melde mich persönlich bei Ihnen.</p><a className="email" href={'mailto:'+business.email}>{business.email}</a><p>Niedergösgen SO · Aargau & Solothurn</p>{business.phone ? <div className="actions"><a href={'tel:'+business.phone}>Anrufen</a><a href={'https://wa.me/'+business.phone.replace(/\D/g,'')}>WhatsApp</a></div> : <p className="muted">Telefon & WhatsApp folgen. Sie erreichen mich bereits per E-Mail.</p>}<a className="secondary" href={business.photoMail}>Fotos senden & erste Einschätzung erhalten ↗</a></div><ContactForm /></section>
       </main>
-      <footer><a className="wordmark" href="#start">MALER<span>CHAU</span></a><p>Neu als Maler Chau. Seit 2004 im Handwerk.</p><a href={'mailto:'+business.email}>{business.email}</a><small>© {new Date().getFullYear()} Maler Chau</small></footer>
+      <footer><a className="brand-logo" href="#start" aria-label="Maler Chau Startseite"><Image src="/maler-chau-logo.jpeg" alt="Maler Chau – Malerarbeiten & Renovationen" width={1254} height={1254} unoptimized /></a><p>Neu als Maler Chau. Seit 2004 im Handwerk.</p><a href={'mailto:'+business.email}>{business.email}</a><small>© {new Date().getFullYear()} Maler Chau</small></footer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}} />
     </>
   );
 }
-
