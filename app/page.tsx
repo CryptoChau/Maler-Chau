@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ContactForm } from './contact-form';
 import { ScrollStory } from './scroll-story';
+import { PriceCalculator } from './price-calculator';
 import { business, services, steps, projects, reviews } from './site-content';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
           <div><p className="eyebrow">Von der Inspiration zu Ihrem Projekt</p><h2>Was darf ich für Sie verändern?</h2><p>Ein Zimmer, eine Renovation oder ein kleiner Auftrag: Erzählen Sie mir von Ihrem Vorhaben.</p></div>
           <div className="inquiry-actions"><a className="button" href="#kontakt">Kostenlose Offerte anfragen</a><a className="secondary" href={business.photoMail}>Projekt per Foto anfragen ↗</a><p>Fotos, Ort und eine kurze Beschreibung genügen für den ersten Kontakt.</p></div>
         </section>
+        <PriceCalculator />
         <div className="trust"><span>Maler EFZ</span><span>Seit 2004 im Beruf</span><span>Schweizer Berufserfahrung</span><span>Direkter Kontakt mit Chau</span></div>
         <section className="section" id="leistungen">
           <div className="section-heading"><div><p className="eyebrow">Was ich für Sie mache</p><h2>Vom einzelnen Zimmer<br />bis zur Renovation.</h2></div><p>Für Ihr Haus, Ihre Wohnung oder eine bevorstehende Übergabe. Ich kümmere mich auch um die kleinen Arbeiten, die lange liegen bleiben.</p></div>
@@ -42,7 +44,6 @@ export default function Home() {
         </section>
         <section className="section" id="ablauf"><p className="eyebrow">So kommen wir zusammen</p><h2>In vier Schritten<br />zur frisch gestrichenen Wand.</h2><div className="steps">{steps.map((s,i)=><article key={s.title}><span className="number">0{i+1}</span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div></section>
         <section className="region section" id="region"><div><p className="eyebrow">In Ihrer Nähe</p><h2>Von Niedergösgen<br />zu Ihnen nach Hause.</h2><p>Mein Ausgangspunkt ist Niedergösgen SO. Ich übernehme Malerarbeiten in der Region Olten, Aarau, Lenzburg und Zofingen sowie in weiteren Orten in Aargau und Solothurn nach Absprache.</p></div><div className="places">{business.areas.map(a=><span key={a}>{a}</span>)}<p>Ihr Ort ist nicht dabei? Fragen Sie mich gerne an.</p></div></section>
-        <section className="section cost" id="kosten"><div><p className="eyebrow">Kosten & Planung</p><h2>Was kostet mein Malerprojekt?</h2></div><div><p>Fläche, Zustand der Wände, Vorbereitung und Möblierung beeinflussen den Aufwand. Mit Fotos und einer kurzen Beschreibung kann ich Ihr Vorhaben besser einschätzen.</p><p>Ein unverbindlicher Preisrechner ist für später geplant. Bis dahin erhalten Sie eine persönliche, nachvollziehbare Offerte.</p><a className="secondary" href="#kontakt">Kostenlose Offerte anfragen ↗</a></div></section>
         {projects.length > 0 && <section className="section"><h2>Einblicke in meine Arbeit</h2>{projects.map(p=><article key={p.title}><h3>{p.title}</h3><p>{p.description}</p></article>)}</section>}
         {reviews.length > 0 && <section className="section"><h2>Stimmen meiner Kunden</h2>{reviews.map(r=><blockquote key={r.name}>{r.text}<cite>{r.name}</cite></blockquote>)}</section>}
         <section className="contact section" id="kontakt"><div className="contact-intro"><p className="eyebrow">Ihr Projekt beginnt mit einer Nachricht</p><h2>Erzählen Sie mir,<br />was Sie vorhaben.</h2><p>Fotos, Ihr Ort und eine kurze Beschreibung reichen für den ersten Kontakt. Ich melde mich persönlich bei Ihnen.</p><a className="email" href={'mailto:'+business.email}>{business.email}</a><p>Niedergösgen SO · Aargau & Solothurn</p>{business.phone ? <div className="actions"><a href={'tel:'+business.phone}>Anrufen</a><a href={'https://wa.me/'+business.phone.replace(/\D/g,'')}>WhatsApp</a></div> : <p className="muted">Telefon & WhatsApp folgen. Sie erreichen mich bereits per E-Mail.</p>}<a className="secondary" href={business.photoMail}>Fotos senden & erste Einschätzung erhalten ↗</a></div><ContactForm /></section>
