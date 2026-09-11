@@ -5,8 +5,8 @@ import './scroll-story.css';
 import './story-intro.css';
 
 const scenes = [
-  { image: '/story-brand.webp', label: 'Maler Chau · Niedergösgen SO', title: ['Malerarbeiten.', 'Persönlich für Sie.'], text: '', link: '#projektanfrage', cta: 'Ihr Projekt anfragen', position: '50% 50%' },
-  { image: '/story-room.webp', label: 'Wände & Decken', title: ['Neue Farbe.', 'Neues Wohngefühl.'], text: 'Frische Wände. Klare Linien. Ein Zuhause, das zu Ihnen passt.', link: '#leistungen', cta: 'Malerarbeiten entdecken', position: '50% 50%' },
+  { image: '/story-brand-blue.webp', label: 'Maler Chau · Niedergösgen SO', title: ['Malerarbeiten.', 'Persönlich für Sie.'], text: '', link: '#projektanfrage', cta: 'Ihr Projekt anfragen', position: '50% 50%' },
+  { image: '/story-room-blue.webp', label: 'Wände & Decken', title: ['Neue Farbe.', 'Neues Wohngefühl.'], text: 'Frische Wände. Klare Linien. Ein Zuhause, das zu Ihnen passt.', link: '#leistungen', cta: 'Malerarbeiten entdecken', position: '50% 50%' },
   { image: '/story-colors.webp', label: 'Persönliche Beratung', title: ['Ihre Idee.', 'Gemeinsam weitergedacht.'], text: 'Farben, Oberflächen und Aufwand bespreche ich direkt mit Ihnen.', link: '#kontakt', cta: 'Projekt besprechen', position: '50% 50%' },
   { image: '/story-detail.webp', label: 'Renovationen & Holzwerk', title: ['Sorgfalt.', 'Bis ins Detail.'], text: 'Von der Vorbereitung bis zur letzten Kante: sauber ausgeführtes Handwerk.', link: '#kontakt', cta: 'Kostenlose Offerte anfragen', position: '50% 50%' },
 ];
@@ -89,7 +89,7 @@ export function ScrollStory() {
         </div>
       </article>)}
       <div className="story-topline"><span>Räume. Farben. Handwerk.</span><a href="#projektanfrage">Direkt zur Anfrage ↓</a></div>
-      <div className="story-bottomline"><span>KI-Rauminspiration · keine Projektreferenzen</span><span aria-hidden="true">0{active + 1} / 04</span></div>
+      <div className="story-bottomline"><span aria-hidden="true">0{active + 1} / 04</span></div>
       <div className="story-progress" aria-hidden="true"><span /></div>
     </div>
   </section>;
